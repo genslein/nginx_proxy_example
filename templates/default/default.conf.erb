@@ -10,8 +10,17 @@ http {
         }
 
         location /weather/ {
-            proxy_set_header Host weather.com;
-            proxy_redirect https://weather.com/weather/ http://localhost/weather/;
+            proxy_redirect http://localhost/weather/ https://localhost/weather/;
+        }
+    }
+
+    server {
+        listen 443 ssl;
+        server_name localhost;
+
+        location /weather/ {
+            proxy_redirect off;
+            proxy_pass https://weather.com/weather/;
         }
     }
 }
