@@ -1,0 +1,13 @@
+{
+    server {
+    listen 80;
+    server_name localhost;
+
+    location /bing/ {
+        proxy_pass http://www.bing.com/;
+    }
+
+    location /weather/ {
+        proxy_pass http://www.weather.com/;
+    }
+}
