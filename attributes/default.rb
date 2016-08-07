@@ -1,1 +1,1 @@
-node['nginx']['install_method'] = 'source'
+default['nginx']['install_method'] = 'source'
