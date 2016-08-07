@@ -10,7 +10,8 @@ http {
         }
 
         location /weather/ {
-            proxy_redirect http://localhost/weather/ https://localhost/weather/;
+            resolver 127.0.0.1 [::1]:443;
+            rewrite http://localhost/weather/ https://localhost/weather/;
         }
     }
 
