@@ -7,4 +7,5 @@ group :test do
   gem 'rake', '11.2.2'
   gem 'test-kitchen', '1.10.2'
   gem 'kitchen-vagrant', '0.20.0'
+  gem 'serverspec', '2.36.0'
 end

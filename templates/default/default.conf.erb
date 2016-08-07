@@ -1,20 +1,17 @@
-{
+http {
     server {
-    listen 80;
-    server_name localhost;
+        listen 80;
+        server_name localhost;
 
-    access_log  /var/log/nginx/localhost.access.log;
+        access_log  /var/log/nginx/localhost.access.log;
 
-    location / {
-        root   /var/www/nginx-default;
-        index  index.html index.htm;
-    }
+        location /bing/ {
+            proxy_pass http://www.bing.com/;
+        }
 
-    location /bing/ {
-        proxy_pass http://www.bing.com/;
-    }
-
-    location /weather/ {
-        proxy_pass http://www.weather.com/;
+        location /weather/ {
+            proxy_set_header Host weather.com;
+            proxy_redirect https://weather.com/weather/ http://localhost/weather/;
+        }
     }
 }

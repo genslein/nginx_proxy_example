@@ -6,5 +6,4 @@ description      'Installs/Configures new nginx proxy'
 long_description 'Installs/Configures new nginx proxy to bing and weather'
 version          '0.1.0'
 
-depends 'apt',   '3.0.0'
 depends 'nginx', '2.7.6'
