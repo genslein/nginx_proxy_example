@@ -1,42 +1,28 @@
-# new-cookbook
+# nginx_proxy_example-cookbook
 
-TODO: Enter the cookbook description here.
+Uses Nginx as a reverse proxy to Bing and Weather with ephemeral port range change to 20000 64000
 
 ## Supported Platforms
 
-TODO: List your supported platforms.
+Ubuntu 14.04
 
 ## Attributes
-
-<table>
-  <tr>
-    <th>Key</th>
-    <th>Type</th>
-    <th>Description</th>
-    <th>Default</th>
-  </tr>
-  <tr>
-    <td><tt>['new']['bacon']</tt></td>
-    <td>Boolean</td>
-    <td>whether to include bacon</td>
-    <td><tt>true</tt></td>
-  </tr>
-</table>
+N/a at this time.
 
 ## Usage
 
 ### new::default
 
-Include `new` in your node's `run_list`:
+Include `nginx_proxy` in your node's `run_list`:
 
 ```json
 {
   "run_list": [
-    "recipe[new::default]"
+    "recipe[nginx_proxy::default]"
   ]
 }
 ```
 
 ## License and Authors
 
-Author:: YOUR_NAME (<YOUR_EMAIL>)
+Author:: Gabe Enslein
