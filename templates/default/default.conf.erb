@@ -9,10 +9,10 @@ http {
             proxy_pass http://www.bing.com/;
         }
 
-        location ~ \weather {
-            rewrite ^ https://localhost$request_uri permanent;
-            proxy_redirect off;
+        location /weather/ {
             proxy_pass https://weather.com/weather/;
+            proxy_redirect off;
+            proxy_set_header   Host $host;
         }
     }
 }
