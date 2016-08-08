@@ -11,6 +11,6 @@ describe 'nginx installed' do
   end
 
   it 'can reach weather.com Atlanta' do
-    expect(command('curl http://localhost/weather/today/l/USGA0028:1:US').stdout).to_not eq ''
+    expect(command('curl localhost/weather/today/l/USGA0028:1:US').stdout).to_not eq ''
   end
 end

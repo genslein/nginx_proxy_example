@@ -13,16 +13,16 @@ apt_package 'curl' do
   action :install
 end
 
-template '/etc/nginx/sites-available/default.conf' do
+template '/etc/nginx/sites-available/default' do
   source 'default.conf.erb'
-  owner 'www-data'
-  group 'www-data'
-  mode '0755'
+  owner 'root'
+  group 'root'
+  mode '0644'
 end
 
 link '/etc/nginx/sites-enabled/default' do
   to '/etc/nginx/sites-available/default.conf'
-  notifies :restart, 'service[nginx]'
+  notifies :reload, 'service[nginx]'
 end
 
 execute 'change ephemeral ports' do

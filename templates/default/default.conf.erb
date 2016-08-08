@@ -1,26 +1,19 @@
-http {
-    server {
-        listen 80;
-        server_name localhost;
+server {
+    listen 80;
+    server_name $host;
 
-        access_log  /var/log/nginx/localhost.access.log;
+    access_log  /var/log/nginx/localhost.access.log;
 
-        location /bing/ {
-            proxy_pass http://www.bing.com/;
-        }
-
-        location /weather/ {
-            return 301 https://$server_name$request_uri;
-        }
+    location / {
+        root   /var/www/nginx-default;
+        index  index.html index.htm;
     }
 
-    # http://serverfault.com/questions/67316/in-nginx-how-can-i-rewrite-all-http-requests-to-https-while-maintaining-sub-dom
-    server {
-        listen 443 ssl;
-        server_name localhost;
+    location /bing/ {
+        proxy_pass http://www.bing.com/;
+    }
 
-        location /weather/ {
-            proxy_pass https://weather.com/;
-        }
+    location /weather/ {
+        proxy_pass https://weather.com/;
     }
 }
