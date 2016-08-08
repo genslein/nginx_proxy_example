@@ -23,6 +23,11 @@ Include `nginx_proxy` in your node's `run_list`:
 }
 ```
 
+## Current issue
+
+Though http to https proxy pass is supposedly allowed by nginx (https://www.nginx.com/blog/nginx-ssl/)
+I have yet to get a working example of http to https forwarding by nginx.
+
 ## License and Authors
 
 Author:: Gabe Enslein

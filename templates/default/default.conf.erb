@@ -1,6 +1,7 @@
 http {
     server {
         listen 80;
+        listen 443 ssl;
         server_name localhost;
 
         access_log  /var/log/nginx/localhost.access.log;
@@ -10,8 +11,9 @@ http {
         }
 
         location /weather/ {
+            rewrite ^ https://$server_name$request_uri? permanent;
             proxy_pass https://weather.com/weather/;
-            proxy_redirect off;
+            proxy_redirect default;
             proxy_set_header   Host $host;
         }
     }
